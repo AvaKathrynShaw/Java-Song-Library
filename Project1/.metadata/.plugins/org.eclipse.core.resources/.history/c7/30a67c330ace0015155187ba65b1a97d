@@ -24,8 +24,7 @@ public class SongOverviewController {
     private Label ReleaseDateLabel;
 
     // Reference to the main application.
-    @SuppressWarnings("unused")
-	private MainApp mainApp;
+    private MainApp mainApp;
 
     /**
      * The constructor.
