@@ -1,0 +1,57 @@
+package view;
+
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import controller.MainApp;
+import model.Song;
+
+public class SongOverviewController {
+    @FXML
+    private TableView<Song> SongTable;
+    @FXML
+    private TableColumn<Song, String> SongNameColumn;
+
+
+    @FXML
+    private Label SongNameLabel;
+    @FXML
+    private Label ArtistLabel;
+    @FXML
+    private Label AlbumLabel;
+    @FXML
+    private Label ReleaseDateLabel;
+
+    // Reference to the main application.
+    private MainApp mainApp;
+
+    /**
+     * The constructor.
+     * The constructor is called before the initialize() method.
+     */
+    public SongOverviewController() {
+    }
+
+    /**
+     * Initializes the controller class. This method is automatically called
+     * after the fxml file has been loaded.
+     */
+    @FXML
+    private void initialize() {
+        // Initialize the Song table with the two columns.
+        SongNameColumn.setCellValueFactory(cellData -> cellData.getValue().SongNameProperty());
+    }
+
+    /**
+     * Is called by the main application to give a reference back to itself.
+     * 
+     * @param mainApp
+     */
+    public void setMainApp(MainApp mainApp) {
+        this.mainApp = mainApp;
+
+        // Add observable list data to the table
+        SongTable.setItems(mainApp.getSongData());
+    }
+}

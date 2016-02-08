@@ -9,13 +9,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-
-
 public class MainApp extends Application {
 
     private Stage primaryStage;
     private BorderPane rootLayout;
-    
 
     @Override
     public void start(Stage primaryStage) {
@@ -55,10 +52,6 @@ public class MainApp extends Application {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainApp.class.getResource("../view/SongOverview.fxml"));
             AnchorPane SongOverview = (AnchorPane) loader.load();
-            
-            // Give the controller access to the main app.
-            SongOverviewController controller = loader.getController();
-            controller.setMainApp(this);
 
             // Set person overview into the center of root layout.
             rootLayout.setCenter(SongOverview);
@@ -66,7 +59,6 @@ public class MainApp extends Application {
             e.printStackTrace();
         }
     }
-    
 
     /**
      * Returns the main stage.

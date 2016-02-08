@@ -57,7 +57,7 @@ public class MainApp extends Application {
             AnchorPane SongOverview = (AnchorPane) loader.load();
             
             // Give the controller access to the main app.
-            SongOverviewController controller = loader.getController();
+            PersonOverviewController controller = loader.getController();
             controller.setMainApp(this);
 
             // Set person overview into the center of root layout.
@@ -67,6 +67,36 @@ public class MainApp extends Application {
         }
     }
     
+    /**
+     * The data as an observable list of Songs.
+     */
+    private ObservableList<Song> SongData = FXCollections.observableArrayList();
+
+
+    public MainApp() {
+        // Add some sample data
+        SongData.add(new Song("Sun Models"));
+        SongData.add(new Song("You've Got A Friend in Me"));
+        SongData.add(new Song("Thats Life"));
+        SongData.add(new Song("Frosty The Snowman"));
+        SongData.add(new Song("Machine Gun Funk"));
+        SongData.add(new Song("Dirty Pop"));
+        SongData.add(new Song("Thriller"));
+        SongData.add(new Song("Sweet Home Alabama"));
+        SongData.add(new Song("Hello"));
+    }
+
+    /**
+     * Returns the data as an observable list of Songs. 
+     * @return
+     */
+    public ObservableList<Song> getSongData() {
+        return SongData;
+    }
+
+    // ... THE REST OF THE CLASS ...
+
+
 
     /**
      * Returns the main stage.
