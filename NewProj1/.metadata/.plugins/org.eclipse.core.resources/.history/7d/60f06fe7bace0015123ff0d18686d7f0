@@ -1,0 +1,5 @@
+package songLibrary.view;
+
+public class SongEditDialogController {
+
+}

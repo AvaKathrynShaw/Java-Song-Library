@@ -113,7 +113,7 @@ public class MainApp extends Application {
 
            // Create the dialog Stage.
            Stage dialogStage = new Stage();
-           dialogStage.setTitle("Edit Song");
+           dialogStage.setTitle("Edit Person");
            dialogStage.initModality(Modality.WINDOW_MODAL);
            dialogStage.initOwner(primaryStage);
            Scene scene = new Scene(page);
@@ -133,8 +133,6 @@ public class MainApp extends Application {
            return false;
        }
    }
-   
-
 
 
 

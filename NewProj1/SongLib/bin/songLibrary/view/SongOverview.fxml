@@ -76,8 +76,8 @@
                   <Label layoutX="161.0" layoutY="55.0" text="Song Details" />
                   <ButtonBar layoutX="75.0" layoutY="466.0" prefHeight="40.0" prefWidth="200.0">
                     <buttons>
-                        <Button mnemonicParsing="false" text="Add" />
-                        <Button mnemonicParsing="false" text="Edit" />
+                        <Button mnemonicParsing="false" onAction="#handleNewSong" text="Add" />
+                        <Button mnemonicParsing="false" onAction="#handleEditSong" text="Edit" />
                       <Button mnemonicParsing="false" text="Delete" />
                     </buttons>
                   </ButtonBar>
