@@ -1,0 +1,80 @@
+package songLibrary.view;
+
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import songLibrary.*;
+import songLibrary.model.*;
+
+
+public class SongOverviewController {
+    @FXML
+    private TableView<Song> SongTable;
+    @FXML
+    private TableColumn<Song, String> SongNameColumn;
+    @FXML
+    private Label SongNameLabel;
+    @FXML
+    private Label ArtistLabel;
+    @FXML
+    private Label AlbumLabel;
+    @FXML
+    private Label ReleaseDateLabel;
+
+    // Reference to the main application.
+	private MainApp mainApp;
+
+    /**
+     * The constructor.
+     * The constructor is called before the initialize() method.
+     */
+    public SongOverviewController() {
+    }
+
+    /**
+     * Initializes the controller class. This method is automatically called
+     * after the fxml file has been loaded.
+     */
+    @FXML
+    private void initialize() {
+        // Initialize the Song table with the two columns.
+        SongNameColumn.setCellValueFactory(cellData -> cellData.getValue().SongNameProperty());
+    }
+
+    /**
+     * Is called by the main application to give a reference back to itself.
+     * 
+     * @param mainApp
+     */
+    public void setMainApp(MainApp mainApp) {
+        this.mainApp = mainApp;
+
+        // Add observable list data to the table
+        SongTable.setItems(mainApp.getSongData());
+    }
+    
+    /**
+     * Fills all text fields to show details about the person.
+     * If the specified song is null, all text fields are cleared.
+     * 
+     * @param song the person or null
+     */
+    private void showSongDetails(Song song) {
+        if (song != null) {
+            // Fill the labels with info from the person object.
+            SongNameLabel.setText(song.getSongName());
+            ArtistLabel.setText(song.getArtist());
+            ReleaseDateLabel.setText(DateUtil.format(song.getReleaseDate()));
+           
+
+            // ReleaseDateLabel.setText(...);
+        } else {
+            // Song is null, remove all the text.
+            SongNameLabel.setText("");
+            ArtistLabel.setText("");
+            AlbumLabel.setText("");
+            ReleaseDateLabel.setText("");
+        }
+    }
+}

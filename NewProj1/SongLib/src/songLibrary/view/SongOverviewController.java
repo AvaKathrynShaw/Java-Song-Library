@@ -1,11 +1,13 @@
 package songLibrary.view;
 
 import javafx.fxml.FXML;
+import songLibrary.util.*;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import songLibrary.*;
 import songLibrary.model.*;
+import songLibrary.util.*;
 
 
 public class SongOverviewController {
@@ -38,8 +40,16 @@ public class SongOverviewController {
      */
     @FXML
     private void initialize() {
-        // Initialize the Song table with the two columns.
-        SongNameColumn.setCellValueFactory(cellData -> cellData.getValue().SongNameProperty());
+        // Initialize the song table
+        SongNameColumn.setCellValueFactory(
+                cellData -> cellData.getValue().SongNameProperty());
+
+        // Clear person details.
+        showSongDetails(null);
+
+        // Listen for selection changes and show the person details when changed.
+        SongTable.getSelectionModel().selectedItemProperty().addListener(
+                (observable, oldValue, newValue) -> showSongDetails(newValue));
     }
 
     /**
@@ -52,5 +62,29 @@ public class SongOverviewController {
 
         // Add observable list data to the table
         SongTable.setItems(mainApp.getSongData());
+    }
+    
+    /**
+     * Fills all text fields to show details about the person.
+     * If the specified song is null, all text fields are cleared.
+     * 
+     * @param song the person or null
+     */
+    private void showSongDetails(Song song) {
+        if (song != null) {
+            // Fill the labels with info from the person object.
+            SongNameLabel.setText(song.getSongName());
+            ArtistLabel.setText(song.getArtist());
+            ReleaseDateLabel.setText(DateUtil.format(song.getReleaseDate()));
+           
+
+            // ReleaseDateLabel.setText(...);
+        } else {
+            // Song is null, remove all the text.
+            SongNameLabel.setText("");
+            ArtistLabel.setText("");
+            AlbumLabel.setText("");
+            ReleaseDateLabel.setText("");
+        }
     }
 }
