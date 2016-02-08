@@ -1,0 +1,5 @@
+package songLibrary.model;
+
+public class Song {
+
+}

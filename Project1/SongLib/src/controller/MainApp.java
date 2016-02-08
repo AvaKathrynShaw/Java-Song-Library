@@ -1,7 +1,9 @@
-package controller;
+package Controller;
 
 import java.io.IOException;
 
+import Controller.model.Song;
+import Controller.view.SongOverviewController;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -10,8 +12,6 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import model.Song;
-import view.SongOverviewController;
 
 
 
