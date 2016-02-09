@@ -78,7 +78,7 @@
                     <buttons>
                         <Button mnemonicParsing="false" onAction="#handleNewSong" text="Add" />
                         <Button mnemonicParsing="false" onAction="#handleEditSong" text="Edit" />
-                      <Button mnemonicParsing="false" text="Delete" />
+                      <Button mnemonicParsing="false" onAction="#handleDeleteSong" text="Delete" />
                     </buttons>
                   </ButtonBar>
                </children>

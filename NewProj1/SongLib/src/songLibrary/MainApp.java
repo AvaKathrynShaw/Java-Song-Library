@@ -2,6 +2,7 @@ package songLibrary;
 
 
 import java.io.IOException;
+import songLibrary.view.*;
 
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -90,6 +91,7 @@ public class MainApp extends Application {
             // Give the controller access to the main app.
             SongOverviewController controller = loader.getController();
             controller.setMainApp(this);
+            
 
         } catch (IOException e) {
             e.printStackTrace();

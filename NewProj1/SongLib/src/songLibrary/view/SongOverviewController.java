@@ -1,15 +1,14 @@
 package songLibrary.view;
 
 import javafx.fxml.FXML;
-import songLibrary.util.*;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import songLibrary.*;
 import songLibrary.model.*;
 import songLibrary.util.*;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 
 
 public class SongOverviewController {
@@ -77,6 +76,7 @@ public class SongOverviewController {
             // Fill the labels with info from the person object.
             SongNameLabel.setText(song.getSongName());
             ArtistLabel.setText(song.getArtist());
+            AlbumLabel.setText(song.getAlbum());
             ReleaseDateLabel.setText(DateUtil.format(song.getReleaseDate()));
            
 
@@ -126,4 +126,29 @@ public class SongOverviewController {
             alert.showAndWait();
         }
     }
+    
+
+    /**
+     * Called when the user clicks on the delete button.
+     */
+    @FXML
+    private void handleDeleteSong() {
+        int selectedIndex = SongTable.getSelectionModel().getSelectedIndex();
+        if (selectedIndex >= 0) {
+            SongTable.getItems().remove(selectedIndex);
+        } else {
+            // Nothing selected.
+            Alert alert = new Alert(AlertType.WARNING);
+            alert.initOwner(mainApp.getPrimaryStage());
+            alert.setTitle("No Selection");
+            alert.setHeaderText("No Song Selected");
+            alert.setContentText("Please select a Song in the table.");
+
+            alert.showAndWait();
+        }
+    }
 }
+    
+
+
+

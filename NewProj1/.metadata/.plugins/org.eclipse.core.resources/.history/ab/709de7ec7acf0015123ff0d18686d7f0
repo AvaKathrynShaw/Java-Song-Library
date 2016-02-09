@@ -1,0 +1,140 @@
+package songLibrary.view;
+
+import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import songLibrary.model.Song;
+import songLibrary.util.DateUtil;
+
+
+/**
+ * Dialog to edit details of a song.
+ * 
+ *
+ */
+public class SongEditDialogController {
+
+    @FXML
+    private TextField songNameField;
+    @FXML
+    private TextField ArtistField;
+    @FXML
+    private TextField AlbumField;
+    @FXML
+    private TextField ReleaseDateField;
+
+
+    private Stage dialogStage;
+    private Song song;
+    private boolean okClicked = false;
+
+    /**
+     * Initializes the controller class. This method is automatically called
+     * after the fxml file has been loaded.
+     */
+    @FXML
+    private void initialize() {
+    }
+
+    /**
+     * Sets the stage of this dialog.
+     * 
+     * @param dialogStage
+     */
+    public void setDialogStage(Stage dialogStage) {
+        this.dialogStage = dialogStage;
+    }
+
+    /**
+     * Sets the song to be edited in the dialog.
+     * 
+     * @param song
+     */
+    public void setSong(Song song) {
+        this.song = song;
+
+        songNameField.setText(song.getSongName());
+        ArtistField.setText(song.getArtist());
+        AlbumField.setText(song.getAlbum());
+        ReleaseDateField.setText(DateUtil.format(song.getReleaseDate()));
+        ReleaseDateField.setPromptText("dd.mm.yyyy");
+    }
+
+    /**
+     * Returns true if the user clicked OK, false otherwise.
+     * 
+     * @return
+     */
+    public boolean isOkClicked() {
+        return okClicked;
+    }
+
+    /**
+     * Called when the user clicks ok.
+     */
+    @FXML
+    private void handleOk() {
+        if (isInputValid()) {
+            song.setSongName(songNameField.getText());
+            song.setArtist(ArtistField.getText());
+            song.setAlbum(AlbumField.getText());
+            song.setReleaseDate(DateUtil.parse(ReleaseDateField.getText()));
+
+            okClicked = true;
+            dialogStage.close();
+        }
+    }
+
+    /**
+     * Called when the user clicks cancel.
+     */
+    @FXML
+    private void handleCancel() {
+        dialogStage.close();
+    }
+
+    /**
+     * Validates the user input in the text fields.
+     * 
+     * @return true if the input is valid
+     */
+    private boolean isInputValid() {
+        String errorMessage = "";
+
+        if (songNameField.getText() == null || songNameField.getText().length() == 0) {
+            errorMessage += "No valid song name!\n"; 
+        }
+        if (ArtistField.getText() == null || ArtistField.getText().length() == 0) {
+            errorMessage += "No valid artist!\n"; 
+        }
+
+        if (AlbumField.getText() == null || AlbumField.getText().length() == 0) {
+            errorMessage += "No valid album!\n"; 
+        }
+
+        if (ReleaseDateField.getText() == null || ReleaseDateField.getText().length() == 0) {
+            errorMessage += "No valid release date!\n";
+        } else {
+            if (!DateUtil.validDate(ReleaseDateField.getText())) {
+                errorMessage += "No valid Release Date. Use the format dd.mm.yyyy!\n";
+            }
+        }
+
+        if (errorMessage.length() == 0) {
+            return true;
+        } else {
+            // Show the error message.
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.initOwner(dialogStage);
+            alert.setTitle("Invalid Fields");
+            alert.setHeaderText("Please correct invalid fields");
+            alert.setContentText(errorMessage);
+
+            alert.showAndWait();
+
+            return false;
+        }
+    }
+}
