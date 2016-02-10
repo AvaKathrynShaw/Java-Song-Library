@@ -40,17 +40,14 @@ public class SongEditDialogController {
     }
 
     /**
-     * Sets the stage of Edit dialog.
+     * Sets the stage of this dialog.
      * 
      * @param dialogStage
      */
     public void setDialogStage(Stage dialogStage) {
         this.dialogStage = dialogStage;
-        this.dialogStage.setTitle("Add/Edit");
+        this.dialogStage.setTitle("Welcome to JavaFX!");
     }
-    
-
-    
 
     /**
      * Sets the song to be edited in the dialog.

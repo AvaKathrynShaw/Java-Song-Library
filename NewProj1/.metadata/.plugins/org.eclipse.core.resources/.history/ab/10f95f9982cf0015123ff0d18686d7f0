@@ -46,10 +46,18 @@ public class SongEditDialogController {
      */
     public void setDialogStage(Stage dialogStage) {
         this.dialogStage = dialogStage;
-        this.dialogStage.setTitle("Add/Edit");
+        this.dialogStage.setTitle("Edit");
     }
     
-
+    /**
+     * Sets the stage of this dialog.
+     * 
+     * @param dialogStage
+     */
+    public void setAddDialogStage(Stage dialogStage) {
+        this.dialogStage = dialogStage;
+        this.dialogStage.setTitle("Add");
+    }
     
 
     /**
