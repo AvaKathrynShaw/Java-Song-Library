@@ -18,6 +18,8 @@
                   <MenuItem mnemonicParsing="false" onAction="#handleExit" text="Exit" />
             </items>
           </Menu>
+            </items>
+          </Menu>
         </menus>
       </MenuBar>
    </top>

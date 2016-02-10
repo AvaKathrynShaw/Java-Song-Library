@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="songLibrary.view.SongOverviewController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="songLibrary.view.SongOverviewController">
    <children>
       <SplitPane dividerPositions="0.3210702341137124" layoutX="126.0" layoutY="67.0" prefHeight="600.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
@@ -25,7 +25,7 @@
                   </TableView>
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" styleClass="background">
                <children>
                   <Separator layoutX="-1.0" layoutY="288.0" prefHeight="3.0" prefWidth="411.0" />
                   <GridPane layoutX="17.0" layoutY="86.0" prefHeight="163.0" prefWidth="366.0">
@@ -41,19 +41,19 @@
                     </rowConstraints>
                      <children>
                         <Label text="Artist:" />
-                        <Label fx:id="ArtistLabel" text="Label" GridPane.columnIndex="1" />
+                        <Label fx:id="ArtistLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" />
                         <Label text="Name:" GridPane.rowIndex="1" />
-                        <Label fx:id="SongNameLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label fx:id="SongNameLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <Label text="Album:" GridPane.rowIndex="2" />
-                        <Label fx:id="AlbumLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label fx:id="AlbumLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <Label text="Year:" GridPane.rowIndex="3" />
-                        <Label fx:id="ReleaseDateLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label fx:id="ReleaseDateLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                      </children>
                   </GridPane>
-                  <Label layoutX="161.0" layoutY="55.0" text="Song Details" />
-                  <ButtonBar layoutX="69.0" layoutY="321.0" prefHeight="40.0" prefWidth="200.0">
+                  <Label layoutX="161.0" layoutY="55.0" styleClass="label-bright" text="Song Details" />
+                  <ButtonBar layoutX="-35.0" layoutY="307.0" prefHeight="58.0" prefWidth="393.0">
                     <buttons>
-                        <Button mnemonicParsing="false" onAction="#handleNewSong" text="Add" />
+                        <Button mnemonicParsing="false" onAction="#handleNewSong" prefHeight="31.0" prefWidth="97.0" text="Add" />
                         <Button mnemonicParsing="false" onAction="#handleEditSong" text="Edit" />
                       <Button mnemonicParsing="false" onAction="#handleDeleteSong" text="Delete" />
                     </buttons>
