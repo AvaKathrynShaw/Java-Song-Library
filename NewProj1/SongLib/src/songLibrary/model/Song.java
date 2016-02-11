@@ -1,3 +1,12 @@
+/*************
+ * Authors: 
+ * Ava Shaw
+ * Paul McNeil
+ *************/
+
+
+
+
 package songLibrary.model;
 
 

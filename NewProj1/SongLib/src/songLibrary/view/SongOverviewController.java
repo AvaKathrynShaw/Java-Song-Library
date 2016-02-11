@@ -1,3 +1,12 @@
+/*************
+ * Date Util from Marco Jakob 
+ * Ava Shaw
+ * Paul McNeil
+ *************/
+
+
+
+
 package songLibrary.view;
 
 import javafx.fxml.FXML;
@@ -26,7 +35,7 @@ public class SongOverviewController {
     private Label ReleaseDateLabel;
 
     // Reference to the main application.
-	private MainApp mainApp;
+	private SongLib mainApp;
 
     /**
      * The constructor.
@@ -58,7 +67,7 @@ public class SongOverviewController {
      * 
      * @param mainApp
      */
-    public void setMainApp(MainApp mainApp) {
+    public void setMainApp(SongLib mainApp) {
         this.mainApp = mainApp;
 
         // Add observable list data to the table

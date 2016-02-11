@@ -1,3 +1,12 @@
+/*************
+ *  
+ * Ava Shaw
+ * Paul McNeil
+ *************/
+
+
+
+
 package songLibrary.view;
 
 import javafx.fxml.FXML;

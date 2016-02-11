@@ -1,0 +1,97 @@
+package songLibrary.model;
+
+
+import java.time.LocalDate;
+
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+import songLibrary.util.LocalDateAdapter;
+
+/**
+ * Model class for a Song.
+ *
+ * 
+ */
+public class Song {
+
+    private final StringProperty SongName;
+    private final StringProperty Artist;
+    private final StringProperty Album;
+    private final ObjectProperty<LocalDate> ReleaseDate;
+
+    /**
+     * Default constructor.
+     */
+    public Song() {
+        this(null);
+    }
+
+    /**
+     * Constructor with some initial data.
+     * 
+     * 
+     */
+    public Song(String SongName) {
+        this.SongName = new SimpleStringProperty(SongName);
+        
+
+        // Some initial dummy data, just for convenient testing.
+        this.Artist = new SimpleStringProperty("some artist");
+        this.Album = new SimpleStringProperty("some album");
+        this.ReleaseDate = new SimpleObjectProperty<LocalDate>(LocalDate.of(1999, 2, 21));
+    }
+
+    public String getSongName() {
+        return SongName.get();
+    }
+
+    public void setSongName(String SongName) {
+        this.SongName.set(SongName);
+    }
+
+    public StringProperty SongNameProperty() {
+        return SongName;
+    }
+
+    public String getArtist() {
+        return Artist.get();
+    }
+
+    public void setArtist(String Artist) {
+        this.Artist.set(Artist);
+    }
+
+    public StringProperty ArtistProperty() {
+        return Artist;
+    }
+
+    public String getAlbum() {
+        return Album.get();
+    }
+
+    public void setAlbum(String Album) {
+        this.Album.set(Album);
+    }
+
+    public StringProperty AlbumProperty() {
+        return Album;
+    }
+    
+    
+    @XmlJavaTypeAdapter(LocalDateAdapter.class)
+    public LocalDate getReleaseDate() {
+        return ReleaseDate.get();
+    }
+
+    public void setReleaseDate(LocalDate ReleaseDate) {
+        this.ReleaseDate.set(ReleaseDate);
+    }
+
+    public ObjectProperty<LocalDate> ReleaseDateProperty() {
+        return ReleaseDate;
+    }
+}

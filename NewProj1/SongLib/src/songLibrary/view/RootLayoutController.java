@@ -1,3 +1,11 @@
+/*************
+ * Date Util from Marco Jakob 
+ * Ava Shaw
+ * Paul McNeil
+ *************/
+
+
+
 package songLibrary.view;
 
 
@@ -7,7 +15,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.FileChooser;
-import songLibrary.MainApp;
+import songLibrary.SongLib;
 
 /**
  * The controller for the root layout. The root layout provides the basic
@@ -19,14 +27,14 @@ import songLibrary.MainApp;
 public class RootLayoutController {
 
     // Reference to the main application
-    private MainApp mainApp;
+    private SongLib mainApp;
 
     /**
      * Is called by the main application to give a reference back to itself.
      * 
      * @param mainApp
      */
-    public void setMainApp(MainApp mainApp) {
+    public void setMainApp(SongLib mainApp) {
         this.mainApp = mainApp;
     }
 
