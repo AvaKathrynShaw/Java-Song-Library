@@ -1,17 +1,11 @@
-/*************
- * Date Util from Marco Jakob 
- * Ava Shaw
- * Paul McNeil
- *************/
-
-
-
-
 package songLibrary.view;
+
+import java.util.Optional;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
 import songLibrary.*;
 import songLibrary.model.*;
 import songLibrary.util.*;
@@ -144,7 +138,19 @@ public class SongOverviewController {
     private void handleDeleteSong() {
         int selectedIndex = SongTable.getSelectionModel().getSelectedIndex();
         if (selectedIndex >= 0) {
-            SongTable.getItems().remove(selectedIndex);
+        	Alert alert = new Alert(AlertType.CONFIRMATION);
+        	alert.setTitle("Confirmation Dialog");
+        	alert.setHeaderText("Look, a Confirmation Dialog");
+        	alert.setContentText("Are you ok with this?");
+
+        	Optional<ButtonType> result = alert.showAndWait();
+        	if (result.get() == ButtonType.OK){
+        	    // ... user chose OK
+        	    SongTable.getItems().remove(selectedIndex);
+        	} else {
+        	    // ... user chose CANCEL or closed the dialog
+        	}
+        
         } else {
             // Nothing selected.
             Alert alert = new Alert(AlertType.WARNING);
@@ -157,6 +163,7 @@ public class SongOverviewController {
         }
     }
 }
+
     
 
 

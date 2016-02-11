@@ -17,4 +17,6 @@
 <fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="java.util.prefs.Preferences"/>
 <fullyQualifiedTypeName name="javax.xml.bind.Unmarshaller"/>
+<fullyQualifiedTypeName name="javafx.scene.control.ButtonType"/>
+<fullyQualifiedTypeName name="java.util.Optional"/>
 </qualifiedTypeNameHistroy>
